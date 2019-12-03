@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import state from './redux/state';
 
-let dialogs = [
+/*let dialogs = [
     {id: 1, name:'Dimych'},
     {id: 2, name:'Alex'},
     {id: 3, name:'Nadia'},
@@ -22,9 +23,9 @@ let dialogs = [
         let posts = [
             {id: 1, name:'Hi, how are you?',   likesCounter: '325'},
             {id: 2, name:"It's my first post", likesCounter: '47'}
-          ]; 
+          ]; */
 
-ReactDOM.render(<App dialogs={dialogs} messages={messages} posts={posts} />, document.getElementById('root'));
+ReactDOM.render(<App state={state} />, document.getElementById('root'));
 
 
 

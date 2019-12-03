@@ -5,19 +5,36 @@
 
 .dialogs .dialogsItems{
 padding: 10px;
+color:white;
 }
 
-.dialogsItems.item{
+.dialogs .dialogsItems a{
+    color:white;
+    text-decoration: none;
+    }
+
+.dialogsItems.item {
 
 }
+
+img{
+    width: 20px;
+    }
 .dialogsItems .active{
 color:gold;
 }
 
 .messages{
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
+    
 }
 
-.messages .message{
+
+.message:nth-child(2n){
+    align-items: flex-end;
+
     
 }
