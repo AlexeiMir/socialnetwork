@@ -4,12 +4,14 @@ import Post from './Post/Post'
 
 
 const MyPosts = (props) => {
+  
 
   let newPostElement = React.createRef();
 
   let addPost = () => {
+    debugger;
     let text = newPostElement.current.value;
-    alert(text);
+    props.addPost(text);
   }
 
 

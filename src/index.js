@@ -5,28 +5,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import state from './redux/state';
-
-/*let dialogs = [
-    {id: 1, name:'Dimych'},
-    {id: 2, name:'Alex'},
-    {id: 3, name:'Nadia'},
-    {id: 4, name:'Anton'},
-    {id: 5, name:'Misha'}
-    ];
-
-    let messages = [
-        {id: 1, message:'Hi'},
-        {id: 2, message:'What about your project'},
-        {id: 3, message:'Yo'}
-        ];
+import {addPost} from './redux/state';
 
 
-        let posts = [
-            {id: 1, name:'Hi, how are you?',   likesCounter: '325'},
-            {id: 2, name:"It's my first post", likesCounter: '47'}
-          ]; */
 
-ReactDOM.render(<BrowserRouter><App state={state} /></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter><App state={state} addPost={addPost}/></BrowserRouter>, document.getElementById('root'));
 
 
 
