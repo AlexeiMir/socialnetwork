@@ -26,7 +26,8 @@ let state = {
             posts : [
                 {id: 1, name:'Hi, how are you?',   likesCounter: '325'},
                 {id: 2, name:"It's my first post", likesCounter: '47'}
-              ]
+              ],
+              newPostText : 'it-kamasutra'
             },
 
     sidebar : {
@@ -51,6 +52,13 @@ let state = {
         }
 
         state.profilePage.posts.push(newPost);
+        renderEntireTree(state);
+
+    }
+
+    export let updateNewPostText = (newText) =>{
+        
+        state.profilePage.newPostText = newText;
         renderEntireTree(state);
 
     }
