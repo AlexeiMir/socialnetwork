@@ -1,4 +1,6 @@
-import {renderEntireTree} from './../render';
+let renderEntireTree = () => {
+console.log('State was changed');
+}
 
 
 let state = {
