@@ -17,7 +17,8 @@ let state = {
             {id: 1, message:'Hi'},
             {id: 2, message:'What about your project'},
             {id: 3, message:'Yo'}
- ]
+ ],
+    newMessage: 'it '
     
         },
 
@@ -43,15 +44,18 @@ let state = {
 
     }
 
-    export let addPost = (postMessage) =>{
+    window.state = state;
+
+    export let addPost = () =>{
         
         let newPost = {
             id: 2,
-            name:postMessage,
+            name:state.profilePage.newPostText,
             likesCounter: 2
         }
 
         state.profilePage.posts.push(newPost);
+        state.profilePage.newPostText = '';
         renderEntireTree(state);
 
     }
@@ -59,6 +63,24 @@ let state = {
     export let updateNewPostText = (newText) =>{
         
         state.profilePage.newPostText = newText;
+        renderEntireTree(state);
+
+    }
+
+    export let addMessage = () =>{
+        let newMessage = {
+            id: 2,
+            message: state.dialogsPage.newMessage
+        }
+        state.dialogsPage.messages.push(newMessage);
+        state.dialogsPage.newMessage = ' ';
+        renderEntireTree(state);
+    }
+
+
+
+    export let updateNewMessage = (newMessageText) => {
+        state.dialogsPage.newMessage = newMessageText;
         renderEntireTree(state);
 
     }

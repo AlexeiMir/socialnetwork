@@ -10,14 +10,22 @@ const Dialogs = (props) => {
     
     
     let newMessagePost = React.createRef();
-    debugger;
     let addMessage = ()=> {
-        let textMessage = newMessagePost.current.value;
-        alert(textMessage);
+        props.addMessage();
+        
     }
+
+    let onMessageChange = () => {
+        let message = newMessagePost.current.value;
+        props.updateNewMessage(message);
+
+
+    }
+
+
   
-            let dialogsElements = props.state.dialogs.map( d => <DialogItem name={d.name} id={d.id} />);
-        let messagesElements = props.state.messages.map( m => <Message message={m.message} id={m.id}/> );
+            let dialogsElements = props.dialogs.map( d => <DialogItem name={d.name} id={d.id} />);
+        let messagesElements = props.messages.map( m => <Message message={m.message} id={m.id}/> );
        
 
     return (
@@ -28,7 +36,7 @@ const Dialogs = (props) => {
             <div className={s.messages}>
                 {messagesElements}
                 <div>
-                <textarea ref={newMessagePost} name="" id="" cols="30" rows="5"></textarea>
+                <textarea ref={newMessagePost} onChange={onMessageChange} name="" id="" cols="30" rows="5"></textarea>
                 </div>
                 <div>
                     <button onClick={addMessage}>Отправить</button>
