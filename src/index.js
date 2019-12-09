@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {addPost,addMessage,updateNewPostText,updateNewMessage} from './redux/state';
+import {addPost,addMessage,updateNewPostText,updateNewMessage,subscriber} from './redux/state';
 
 
 export let renderEntireTree = (state) => {
@@ -18,6 +18,8 @@ serviceWorker.unregister();
 
 
 renderEntireTree(state);
+
+subscriber(renderEntireTree);
 
 
 

@@ -48,7 +48,7 @@ let state = {
 
     window.state = state;
 
-    export let addPost = () =>{
+    export const addPost = () =>{
         
         let newPost = {
             id: 2,
@@ -62,14 +62,14 @@ let state = {
 
     }
 
-    export let updateNewPostText = (newText) =>{
+    export const updateNewPostText = (newText) =>{
         
         state.profilePage.newPostText = newText;
         renderEntireTree(state);
 
     }
 
-    export let addMessage = () =>{
+    export const addMessage = () =>{
         let newMessage = {
             id: 2,
             message: state.dialogsPage.newMessage
@@ -81,10 +81,14 @@ let state = {
 
 
 
-    export let updateNewMessage = (newMessageText) => {
+    export const updateNewMessage = (newMessageText) => {
         state.dialogsPage.newMessage = newMessageText;
         renderEntireTree(state);
 
+    }
+
+    export const subscriber = (observer) => {
+        renderEntireTree =  observer; 
     }
 
 export default state;
