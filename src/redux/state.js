@@ -88,7 +88,39 @@ let store = {
         
    subscriber (observer) {
     this._callSubsciber =  observer; 
+            },
+    dispatch (action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 2,
+                name:this._state.profilePage.newPostText,
+                likesCounter: 2
             }
+    
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubsciber(this._state); 
+        } else if (action.type === 'UPDATE-NEW-POST') {
+
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubsciber(this._state);
+        } else if (action.type === 'ADD-MESSAGE' ) {
+            let newMessage = {
+                id: 2,
+                message: this._state.dialogsPage.newMessage
+            }
+            this._state.dialogsPage.messages.push(newMessage);
+            this._state.dialogsPage.newMessage = ' ';
+            this._callSubsciber(this._state);
+        } else if (action.type === 'UPDATE-NEW-MESSAGE') {
+
+            this._state.dialogsPage.newMessage = action.newMessageText;
+                this._callSubsciber(this._state);
+
+        }
+
+
+    }
         
 }
 
