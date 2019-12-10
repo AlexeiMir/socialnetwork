@@ -9,8 +9,8 @@ import * as serviceWorker from './serviceWorker';
 
 
 export let renderEntireTree = (state) => {
-ReactDOM.render(<BrowserRouter><App state={store.getState()} addPost={store.addPost} updateNewPostText={store.updateNewPostText}
-    updateNewMessage={store.updateNewMessage} addMessage={store.addMessage}/></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter><App state={state} addPost={store.addPost.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)}
+    updateNewMessage={store.updateNewMessage.bind(store)} addMessage={store.addMessage.bind(store)}/></BrowserRouter>, document.getElementById('root'));
 }
 
 serviceWorker.unregister();

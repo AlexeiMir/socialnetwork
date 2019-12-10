@@ -45,7 +45,6 @@ let store = {
             console.log('State was changed');
             },
     addPost () {
-        
                 let newPost = {
                     id: 2,
                     name:this._state.profilePage.newPostText,
@@ -75,6 +74,7 @@ let store = {
                 this._callSubsciber(this._state);
             },
     getState () {
+        debugger;
         return this._state;
     },
         
