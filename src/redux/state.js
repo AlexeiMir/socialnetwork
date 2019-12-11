@@ -44,52 +44,17 @@ let store = {
     callSubsciber () {
             console.log('State was changed');
             },
-    addPost () {
-                let newPost = {
-                    id: 2,
-                    name:this._state.profilePage.newPostText,
-                    likesCounter: 2
-                }
-        
-                this._state.profilePage.posts.push(newPost);
-                this._state.profilePage.newPostText = '';
-                this._callSubsciber(this._state);
-        
-            },
-        
-    updateNewPostText (newText){
-                
-                this._state.profilePage.newPostText = newText;
-                this._callSubsciber(this._state);
-        
-            },
-        
-    addMessage () {
-                let newMessage = {
-                    id: 2,
-                    message: this._state.dialogsPage.newMessage
-                }
-                this._state.dialogsPage.messages.push(newMessage);
-                this._state.dialogsPage.newMessage = ' ';
-                this._callSubsciber(this._state);
-            },
+    
     getState () {
         debugger;
         return this._state;
     },
-        
-        
-        
-    updateNewMessage (newMessageText) {
-                this._state.dialogsPage.newMessage = newMessageText;
-                this._callSubsciber(this._state);
-        
-            },
-        
+          
    subscriber (observer) {
     this._callSubsciber =  observer; 
             },
     dispatch (action) {
+        
         if (action.type === 'ADD-POST') {
             let newPost = {
                 id: 2,
@@ -100,7 +65,7 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubsciber(this._state); 
-        } else if (action.type === 'UPDATE-NEW-POST') {
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
 
             this._state.profilePage.newPostText = action.newText;
             this._callSubsciber(this._state);
