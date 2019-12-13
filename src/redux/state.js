@@ -1,3 +1,5 @@
+import {profileReducer} from './profile-reducer';
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
@@ -59,6 +61,15 @@ let store = {
     this._callSubsciber =  observer; 
             },
     dispatch (action) {
+
+        this._state.profilePage = profileReducer(this._state.profilePage,action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar,action);
+
+
+
+
+
         
         if (action.type === ADD_POST) {
             let newPost = {
