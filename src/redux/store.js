@@ -41,8 +41,8 @@ let store = {
                     friends : [
                        {id: 1, friend: 'Dimych'},
                        {id: 2, friend: 'Alex'},
-                       {id: 2, friend: 'Anton'},
-                       {id: 2, friend: 'Misha'}
+                       {id: 3, friend: 'Anton'},
+                       {id: 4, friend: 'Misha'}
                     ]
         
             }
