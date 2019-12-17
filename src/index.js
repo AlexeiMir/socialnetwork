@@ -10,22 +10,17 @@ import {Provider} from 'react-redux';
 
 
 
-export let renderEntireTree = () => {
+
 
 ReactDOM.render(<BrowserRouter>
 <Provider store = {store}><App /></Provider>
 </BrowserRouter>, document.getElementById('root'));
-}
+
 
 serviceWorker.unregister();
 
 
-renderEntireTree();
 
-
-store.subscribe( () =>{
-    renderEntireTree()
-});
 
 
 
