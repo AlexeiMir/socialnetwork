@@ -7,6 +7,7 @@ import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/UsersContainer/UsersContainer';
 
 
 const App = () => {

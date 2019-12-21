@@ -1,11 +1,12 @@
 import React from 'react';
-import UsersContainer from './UsersContainer';
-import style from './usersmodule.css';
+import style from './users.module.css';
 
 
 
 let Users = (props) => {
-    if  (props.users.length === 0) {
+   
+    if (props.users.length === 0) {
+       
         props.setUsers(
             [{
                 id: 1,
@@ -31,37 +32,50 @@ let Users = (props) => {
                 status: 'I am a boss too',
                 location: {city:'Kiev', country: 'Ukraine'}
             }
-        ]
-        )
+            ]
+            )
     }
-    return <div>{
-        props.users.map(u => <div key={u.id}>
+
+
+    return <div> {props.users.map(u => <div key={u.id}>
             <span>
                 <div>
-                    <img src={u.photoUrl} className={StyleSheet.userPhoto}/>
+                    <img src={u.photoUrl} className={style.userPhoto}/>
                 </div>
                 <div>
-                    {u.followed 
-                    ? <button onClick ={ () => {
-                        props.unfollow(u.id)}}>Unfollow</button>
-                    :   <button onClick ={ () => {
-                        props.follow(u.id)}}>Follow</button>
-                }
+                    {u.followed ? 
+                    <button onClick={()=> {props.unfollow(u.id)} }>Unfollow</button> : 
+                    <button onClick={()=> {props.follow(u.id)} }>Follow</button>}
                 </div>
             </span>
             <span>
-                <div>{u.fullName}</div>
-                <div>{u.status}</div>
+                <span>
+                    <div> {u.fullName} </div>
+                    <div> {u.status} </div>
+                </span>
+                <span>
+                    <div> {u.location.country} </div>
+                    <div> {u.location.city} </div>
+                </span>
             </span>
-            <span>
-            <div>{u.location.country}</div>
-            <div>{u.location.city}</div>
-            </span>
-        </div>)
-    }
-    </div>
+        </div>
+     )} </div>
+    
 }
+  
 
 export default Users;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
