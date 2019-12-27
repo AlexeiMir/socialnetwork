@@ -3,6 +3,7 @@ import {followAC,unfollowAC,setUsersAC,setCurrentPageAC,setTotalUsersCountAC} fr
 import Users from './Users';
 import { connect } from 'react-redux';
 import * as axios from 'axios';
+import preloader from '../../assets/images/preloader.svg';
 
 class UsersContainer extends React.Component {
 
@@ -27,7 +28,9 @@ class UsersContainer extends React.Component {
     
 
     render() { 
-      return <Users totalUsersCount ={this.props.totalUsersCount}
+      return <>
+      {this.props.isFetching ? <img src={preloader}/> : null}
+      <Users totalUsersCount ={this.props.totalUsersCount}
                     pageSize = {this.props.pageSize}
                     currentPage = {this.props.currentPage}
                     onPageChanged = {this.onPageChanged}
@@ -35,6 +38,7 @@ class UsersContainer extends React.Component {
                     unfollow = {this.props.unfollow}
                     users = {this.props.users}
       />
+      </>
 
     }
 }
@@ -44,7 +48,8 @@ let mapStateToProps =(state) => {
         users:state.usersPage.users,
         totalUsersCount:state.usersPage.totalUsersCount,
         pageSize: state.usersPage.pageSize,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isFetching : state.usersPage.isFetching
     }
 
 }

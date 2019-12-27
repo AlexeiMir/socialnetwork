@@ -9,7 +9,7 @@ let initialState = {
           ],
           newPostText : 'it-kamasutra'
 }
-debugger;
+
 const profileReducer =(state=initialState,action) => {
     
     switch (action.type) {
