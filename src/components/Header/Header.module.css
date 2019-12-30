@@ -3,5 +3,12 @@
     background-color:orange;
     }
     .header img{
-      width: 20px;
+      width: 50px;
     }
+.loginBlock a {
+color:white
+}
+
+.loginBlock a {
+  float:right
+  }
