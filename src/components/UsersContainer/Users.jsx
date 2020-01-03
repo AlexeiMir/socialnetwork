@@ -34,17 +34,19 @@ let Users = (props) => {
                 <div>
                     {u.followed ?
                         <button onClick={() => { 
-                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}
-                            `,{withCredentials:true, headers: {'API-KEY':'9aa0b454-6ceb-4bde-96c6-c40c83a0a7db'}}).then(response =>{
-                                if (response.data.resultCode == 0) {
+                            /*axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}
+                            `,{withCredentials:true, headers: {'API-KEY':'9aa0b454-6ceb-4bde-96c6-c40c83a0a7db'}}).*/
+                            usersAPI.unfollowUser(u.id).then(data =>{
+                                if (data.resultCode == 0) {
                                     props.unfollow(u.id)
                                 }
                             })
                              }}>Unfollow</button> :
                         <button onClick={() => {
-                            axios.put(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}
-                            `,{},{withCredentials:true, headers: {'API-KEY':'9aa0b454-6ceb-4bde-96c6-c40c83a0a7db'}}).then(response =>{
-                                if (response.data.resultCode == 0) {
+                            /*axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}
+                            `,{},{withCredentials:true, headers: {'API-KEY':'9aa0b454-6ceb-4bde-96c6-c40c83a0a7db'}}).*/
+                            usersAPI.followUser(u.id).then(data =>{
+                                if (data.resultCode == 0) {
                 props.follow(u.id)
             }
         });  }}>Follow</button>}
