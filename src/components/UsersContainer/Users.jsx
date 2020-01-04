@@ -33,23 +33,29 @@ let Users = (props) => {
                 </NavLink>
                 <div>
                     {u.followed ?
-                        <button onClick={() => { 
+                        <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => { 
+                            props.toggleFollowingProgress(true,u.id);
                             /*axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}
                             `,{withCredentials:true, headers: {'API-KEY':'9aa0b454-6ceb-4bde-96c6-c40c83a0a7db'}}).*/
                             usersAPI.unfollowUser(u.id).then(data =>{
                                 if (data.resultCode == 0) {
                                     props.unfollow(u.id)
                                 }
+                                props.toggleFollowingProgress(false,u.id);
                             })
                              }}>Unfollow</button> :
-                        <button onClick={() => {
+                        <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                            props.toggleFollowingProgress(true,u.id);
                             /*axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}
                             `,{},{withCredentials:true, headers: {'API-KEY':'9aa0b454-6ceb-4bde-96c6-c40c83a0a7db'}}).*/
                             usersAPI.followUser(u.id).then(data =>{
                                 if (data.resultCode == 0) {
                 props.follow(u.id)
             }
-        });  }}>Follow</button>}
+            props.toggleFollowingProgress(false,u.id);
+        }); 
+        
+        }}>Follow</button>}
                 </div>
             </span>
             <span>
