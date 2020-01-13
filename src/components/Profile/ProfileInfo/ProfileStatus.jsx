@@ -6,22 +6,30 @@ import s from './ProfileInfo.module.css'
 class ProfileStatus extends React.Component {
 
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
 
     activateEditeMode =() => {
-       console.log("this:",this)
+      
        this.setState(
         {editMode: true} 
        )
 
     }
 
-    deactivateEditeMode() {
+    deactivateEditeMode =() => {
         this.setState(
          {editMode: false} 
         )
+        this.props.updateStatus(this.state.status);
  
+     }
+
+     onStatusChange = (e) => {
+         
+        this.setState({status:e.currentTarget.value})
+
      }
 
 
@@ -30,13 +38,13 @@ class ProfileStatus extends React.Component {
         return <div>
             <div>{!this.state.editMode &&
                 <div>
-                 <span onDoubleClick={this.activateEditeMode}>{this.props.status}</span>
+                 <span onDoubleClick={this.activateEditeMode}>{this.props.status || "---"}</span>
                 </div>
                 }
             </div>
             {this.state.editMode &&
            <div>
-            <input autoFocus={true} onBlur={this.deactivateEditeMode.bind(this)}  value={this.props.status}/>
+            <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditeMode}  value={this.state.status}/>
            </div>
            }
         </div>

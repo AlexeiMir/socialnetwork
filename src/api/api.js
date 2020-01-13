@@ -27,7 +27,7 @@ export const usersAPI = {
     },
 
     getProfile(userId) {
-        return profileAPI.getStatus(userId)
+        return profileAPI.getProfile(userId)
     }
 }
 

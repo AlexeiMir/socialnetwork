@@ -12,7 +12,8 @@ let initialState = {
             {id: 2, name:"It's my first post", likesCounter: '47'}
           ],
           newPostText : 'it-kamasutra',
-          profile: null
+          profile: null,
+          status:""
 }
 
 const profileReducer =(state=initialState,action) => {
@@ -80,7 +81,7 @@ export const  actionCreatorAddPost = () => ({type : ADD_POST});
     return (dispatch) => {
       profileAPI.updateStatus(status).then(response => {
         if (response.data.resultCode === 0) {
-          dispatch(setStatus(response.data))
+          dispatch(setStatus(status))
         }
       })
     }
