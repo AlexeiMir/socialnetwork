@@ -14,8 +14,8 @@ return {
 
 const mapDispatchTooProps = (dispatch) => {
   return {
-    addPost: () => {
-      dispatch(actionCreatorAddPost())
+    addPost: (newPostText) => {
+      dispatch(actionCreatorAddPost(newPostText))
     },
     updateNewPostText: (text) => {
       let action = actionCreatorUpdateNewPostText(text);

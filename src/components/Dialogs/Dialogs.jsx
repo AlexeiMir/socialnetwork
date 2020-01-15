@@ -3,7 +3,8 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import { Redirect } from 'react-router-dom';
-import AddMessageForm from './AddMessageForm/AddMessageForm'
+
+import { Field, reduxForm } from 'redux-form';
 
 
 
@@ -11,17 +12,13 @@ import AddMessageForm from './AddMessageForm/AddMessageForm'
 
 
 const Dialogs = (props) => {
-    
-    
-    let  onSendMessageClick = ()=> {
-        props.sendMessage();
-        
-    }
 
-    let onNewMessageChange = (e) => {
-        let body = e.target.value;
-        props.updateNewMessageBody(body);
+    let addNewMessage = (values) => {
+        props.sendMessage(values.newMessageBody);
+
     }
+    
+
             let dialogsElements = props.dialogsPage.dialogs.map( d => <DialogItem name={d.name} id={d.id} />);
         let messagesElements = props.dialogsPage.messages.map( m => <Message message={m.message} id={m.id}/> );
         let newMessageBody = props.dialogsPage.newMessageBody;
@@ -35,17 +32,27 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}> 
                 {messagesElements}
-                <AddMessageForm />
-                <div>
-                <textarea onChange={onNewMessageChange} placeholder="Введите ваше сообщение" value={newMessageBody}></textarea>
-                </div>
-                <div>
-                    <button onClick={onSendMessageClick}>Отправить</button>
-                </div> 
+                <AddMessageFormRedux onSubmit={addNewMessage}/>
             </div>
-
         </div>
+
+        
     )
 }
+
+const AddMessageForm = (props) => {
+
+    return (
+    <form onSubmit={props.handleSubmit}>
+    <div>
+    <Field placeholder="Enter your message" name="newMessageBody" component="textarea" />
+    </div>
+    <div>
+        <button>Send message</button>
+    </div> 
+    </form>
+    )
+    }
+    const AddMessageFormRedux = reduxForm({form: 'dialog-add-message-form'})(AddMessageForm)
 
 export default Dialogs;

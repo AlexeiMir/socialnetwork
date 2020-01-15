@@ -6,7 +6,7 @@ const AddPostFormPage = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
         <div>
-        <div><Field placeholder={'post'} component={'textarea'} name={'post'}/></div>
+        <div><Field placeholder='Add new post' component={'textarea'} name={'newPostText'}/></div>
           <div>
             <button >Add post</button>
             </div>
@@ -16,17 +16,9 @@ const AddPostFormPage = (props) => {
 }
 
 const AddPostFormRedux = reduxForm({
-    form: 'post'
+    form: 'add-post-form'
 })(AddPostFormPage)
 
-const AddPostForm = (props) => {
-    const onSubmit = (dataForm) => {
-        console.log(dataForm);
-        
-    }
-return (
-    <AddPostFormRedux onSubmit={onSubmit} />
-)
-}
 
-export default AddPostForm;
+
+export default AddPostFormRedux;
