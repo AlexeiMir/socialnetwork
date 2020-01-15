@@ -39,6 +39,18 @@ const authReducer =(state=initialState,action) => {
     }); 
     }
   }
+
+  export const postFormData = (formData) => {
+    return (dispatch) => {
+      authAPI.login(formData).then(response => {
+        if (response.data.resultCode === 0) {
+          let id = response.data.data.userId
+
+          
+        }
+      })
+    }
+  }
  
 
 

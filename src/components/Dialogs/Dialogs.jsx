@@ -3,6 +3,7 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import { Redirect } from 'react-router-dom';
+import AddMessageForm from './AddMessageForm/AddMessageForm'
 
 
 
@@ -25,7 +26,7 @@ const Dialogs = (props) => {
         let messagesElements = props.dialogsPage.messages.map( m => <Message message={m.message} id={m.id}/> );
         let newMessageBody = props.dialogsPage.newMessageBody;
        
-    if (!props.isAuth) {return <Redirect to="/login" />}
+    
 
     return (
         <div className={s.dialogs}>
@@ -34,12 +35,13 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}> 
                 {messagesElements}
+                <AddMessageForm />
                 <div>
                 <textarea onChange={onNewMessageChange} placeholder="Введите ваше сообщение" value={newMessageBody}></textarea>
                 </div>
                 <div>
                     <button onClick={onSendMessageClick}>Отправить</button>
-                </div>
+                </div> 
             </div>
 
         </div>
