@@ -1,6 +1,7 @@
 import React from "react"
 import { reduxForm, Field } from "redux-form"
 
+
 const LoginPage = (props) => {
     
     return (
@@ -20,7 +21,7 @@ const LoginReduxForm = reduxForm({
 }) (LoginPage)
 
 const Login = (props) => {
-    const onSubmit = (formData) => {
+    const onLogin = (formData) => {
         console.log(formData);
         
 
@@ -28,7 +29,7 @@ const Login = (props) => {
 
     return <div>
         <h1>LOGIN</h1>
-        <LoginReduxForm  onSubmit={onSubmit}/></div>
+        <LoginReduxForm  onSubmit={onLogin}/></div>
 }
 
 

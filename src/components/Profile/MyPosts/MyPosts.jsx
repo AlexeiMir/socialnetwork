@@ -9,20 +9,12 @@ import AddPostFormRedux from './AddPostForm/AddPostForm'
 const MyPosts = (props) => {
   
 
-  let newPostElement = React.createRef();
 
   let onAddPost = (values) => {
     props.addPost(values.newPostText);
   }
 
   
-
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
-   props.updateNewPostText(text);
-   /* props.dispatch(actionCreatorUpdateNewPostText(text));*/
-
-  }
 
 
   let postsElements =  props.posts.map( p => <Post message={p.name} likesCounter={p.likesCounter} /> );
