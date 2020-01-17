@@ -3,7 +3,7 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import { Redirect } from 'react-router-dom';
-import AddMessageFormRedux from './AddMessageForm/AddMessageForm'
+import AddMessageForm from './AddMessageForm/AddMessageForm'
 
 
 
@@ -33,7 +33,7 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}> 
                 {messagesElements}
-                <AddMessageFormRedux onSubmit={addNewMessage}/>
+                <AddMessageForm onSubmit={addNewMessage}/>
             </div>
         </div>
 
