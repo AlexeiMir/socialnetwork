@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import s from './ProfileInfo.module.css'
 
 
@@ -29,6 +29,10 @@ const ProfileStatusWithHooks = (props) => {
         setStatus(e.currentTarget.value)
 
      }
+
+     useEffect( () => {
+        setStatus(props.status)
+     },[props.status])
 
     
 
