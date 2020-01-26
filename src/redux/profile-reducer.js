@@ -8,7 +8,9 @@ let initialState = {
     
         posts : [
             {id: 1, name:'Hi, how are you?',   likesCounter: '325'},
-            {id: 2, name:"It's my first post", likesCounter: '47'}
+            {id: 2, name:"It's my first post", likesCounter: '47'},
+            {id: 3, name:"I work succsesfully", likesCounter: '27'},
+            {id: 4, name:"I'm here", likesCounter: '45'}
           ],
           newPostText : 'it-kamasutra',
           profile: null,
