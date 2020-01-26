@@ -6,9 +6,7 @@ import AddPostFormRedux from './AddPostForm/AddPostForm'
 
 
 
-const MyPosts = (props) => {
-  
-
+const MyPosts = React.memo (props =>  {
 
   let onAddPost = (values) => {
     props.addPost(values.newPostText);
@@ -30,6 +28,7 @@ const MyPosts = (props) => {
    </div >
     
   )
-}
+
+})
 
 export default MyPosts;
