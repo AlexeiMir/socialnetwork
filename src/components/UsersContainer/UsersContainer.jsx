@@ -11,7 +11,7 @@ import {getUsers,getTotalUsersCount,getCurrentPage,getIsFetching,getFollowingInP
 
 class UsersContainer extends React.Component {
 
-
+    
     componentDidMount() {
        // this.props.requestUsers(this.props.currentPage,this.props.pageSize)
         const {currentPage,pageSize} = this.props
@@ -30,8 +30,8 @@ class UsersContainer extends React.Component {
     
 
     render() { 
-        console.log("USERS");
-        
+       
+        debugger
       return <>
       {this.props.isFetching ? <Preloader /> : null}
       <Users totalUsersCount ={this.props.totalUsersCount}
