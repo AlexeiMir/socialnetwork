@@ -34,6 +34,7 @@ describe("ProfileStatus Component", () => {
       });
 
       test("input should be displayed in editMode instead of span ", () => {
+          debugger
         const component = create(<ProfileStatus status="it-kamasutra" />);
         const root = component.root;
         let span = root.findByType("span")
