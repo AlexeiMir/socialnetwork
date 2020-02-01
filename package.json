@@ -2,7 +2,7 @@
   "name": "react-homework",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexeimir.github.io/socialnetwork",
+  "homepage": "https://alexeimir.github.io/socialnetwork/",
   "dependencies": {
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
