@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, withRouter,BrowserRouter } from 'react-router-dom';
+import {Route, withRouter,HashRouter } from 'react-router-dom';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
@@ -57,9 +57,9 @@ let AppContainer = compose(
 connect(mapStateToProps,{initializeApp}))(App)
 
 const SamuraiJSApp = (props) => {
-  return <BrowserRouter basename={process.env.PUBLIC_URL}>
+  return <HashRouter >
   <Provider store = {store}><AppContainer /></Provider>
-  </BrowserRouter>
+  </HashRouter>
 }
 
 export default SamuraiJSApp;
