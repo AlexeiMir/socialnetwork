@@ -6,7 +6,7 @@ import userPhoto from '../../../assets/images/user.png'
 import ProfileDataForm from './ProfileDataForm'
 
 
-const ProfileInfo = ({profile,status,updateStatus,isOwner,savePhoto}) => {
+const ProfileInfo = ({profile,status,updateStatus,isOwner,savePhoto,saveProfile}) => {
 
   let [editMode, setEditMode] = useState(false);
  
@@ -20,6 +20,11 @@ const ProfileInfo = ({profile,status,updateStatus,isOwner,savePhoto}) => {
     }
   }
 
+  const onSubmit = (formData) => {
+      saveProfile(formData).then( () => {
+      setEditMode(false)})
+  }
+
   return (
   <div className={s.descriptionBlock}>    
     <div>
@@ -28,7 +33,7 @@ const ProfileInfo = ({profile,status,updateStatus,isOwner,savePhoto}) => {
       {isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
 
       {editMode ?
-      <ProfileDataForm profile={profile} />
+      <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
       :<ProfileData profile={profile} isOwner={isOwner} goToEditMode={()=>{setEditMode(true)}} />}
       
       

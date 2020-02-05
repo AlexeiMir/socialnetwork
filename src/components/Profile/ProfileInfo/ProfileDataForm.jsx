@@ -1,25 +1,37 @@
 import React from 'react'
+import { reduxForm } from 'redux-form'
+import {Input,Textarea,createField} from '../../../FormsControls/FormsControls'
+import s from '../ProfileInfo/ProfileInfo.module.css';
+import style from "../../../FormsControls/FormsControls.module.css"
 
-const ProfileDataForm = ({profile}) => {
-    return <div>
+const ProfileDataForm = ({profile,handleSubmit,initialValues,error}) => {
+  
+    return <form onSubmit={handleSubmit}>
     <div><button >save</button></div>
+    {error&&<div className={style.formSummaryError}>
+            {error}
+        </div>}
   <div>
-    <b>Full name</b>:{profile.fullName}
+    <b>Full name</b>:{createField("Full name", "fullName",[], Input )}
   </div>
   <div>
-    <b>Looking for a job</b>:{profile.lookingForAJob? "yes" : "no"}
+    <b>Looking for a job</b>:{createField("", "lookingForAJob",[], Input,{type: "checkbox"} )}
   </div>
-  {profile.lookingForAJob && <div>
-    <b>My professionals skills</b>:{profile.lookingForAJobDescription}
-  </div>}
   <div>
-<b>About me</b>:{profile.aboutMe}
+    <b>My professionals skills</b>:{createField("My professionals skills", "lookingForAJobDescription",[],
+     Textarea )}
+  </div>
+  <div>
+<b>About me</b>:{createField("About me", "aboutMe",[], Textarea )}
 </div>
-<div className={s.contacts}>
-<b>Contacts</b>: {Object.keys(profile.contacts).map(key => { return <Contact 
-key = {key} contactTitle ={key} contactValue = {profile.contacts[key]} />} )}
+<div> 
+  <b>Contacts:</b>{Object.keys(profile.contacts).map(key => {return <div key={key} className={s.contacts}>
+    <b>{key}:{createField(key, "contacts."+key,[], Input )}</b></div> })}
 </div>
-</div>
+
+</form>
 }
 
-export default ProfileDataForm;
+const ProfileDataFormReduxForm = reduxForm({form: 'edite-profile'})(ProfileDataForm)
+
+export default ProfileDataFormReduxForm;

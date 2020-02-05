@@ -15,7 +15,7 @@ const MyPosts = React.memo (props =>  {
   
 
 
-  let postsElements =  [...props.posts].reverse().map( p => <Post message={p.name} likesCounter={p.likesCounter} /> );
+  let postsElements =  [...props.posts].reverse().map( p => <Post key={p.id} message={p.name} likesCounter={p.likesCounter} /> );
 
   return (
     <div className={s.postsBlock}>
