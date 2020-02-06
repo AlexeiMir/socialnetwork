@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, withRouter,HashRouter } from 'react-router-dom';
+import {Route, withRouter,HashRouter, Redirect } from 'react-router-dom';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
@@ -34,12 +34,15 @@ class App extends Component {
       <HeaderContainer />
       <Navbar />
       <div className="app-wrapper-content">
+        <Switch>
   <Route path='/profile/:userId?' render={withSuspense(ProfileContainer)} /> 
       <Route path='/dialogs' render={withSuspense(DialogsContainer)}/>
       <Route path='/users' render={() =><UsersContainer />}/>
       <Route path='/news'component={News} />
       <Route path='/music'component={Music} />
       <Route path='/login' render ={()=><Login/>} />
+      <Route path='/' exact><Redirect to='/profile/'/></Route>
+      </Switch>
       </div>
     </div>)
  

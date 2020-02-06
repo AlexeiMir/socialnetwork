@@ -99,7 +99,7 @@ export const  actionCreatorAddPost = (newPostText) => ({type : ADD_POST,newPostT
     export const saveProfile = (profile) => async (dispatch,getState) => {
       
       const userId = getState().auth.userId;
-      debugger;
+     
       const response = await profileAPI.saveProfile(profile)
       if (response.data.resultCode === 0) {
         dispatch(getUserProfile(userId))
