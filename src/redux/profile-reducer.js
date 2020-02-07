@@ -83,10 +83,13 @@ export const  actionCreatorAddPost = (newPostText) => ({type : ADD_POST,newPostT
   
 
   export const updateStatus = (status) => async (dispatch) => {
-      const response = await profileAPI.updateStatus(status)
+     try {const response = await profileAPI.updateStatus(status)
         if (response.data.resultCode === 0) {
           dispatch(setStatus(status))
         }
+      } catch(error){
+        
+      }
     }
 
     export const savePhoto = (file) => async (dispatch) => {

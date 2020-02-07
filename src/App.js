@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, withRouter,HashRouter, Redirect } from 'react-router-dom';
+import {Route, withRouter,HashRouter, Redirect,Switch, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
@@ -41,7 +41,8 @@ class App extends Component {
       <Route path='/news'component={News} />
       <Route path='/music'component={Music} />
       <Route path='/login' render ={()=><Login/>} />
-      <Route path='/' exact><Redirect to='/profile/'/></Route>
+      <Route exact path='/' render={()=><Redirect to='/profile/'/>}/>
+      <Route path='*' render ={()=><div>404 page not found</div>} />
       </Switch>
       </div>
     </div>)
@@ -60,9 +61,9 @@ let AppContainer = compose(
 connect(mapStateToProps,{initializeApp}))(App)
 
 const SamuraiJSApp = (props) => {
-  return <HashRouter >
+  return <BrowserRouter >
   <Provider store = {store}><AppContainer /></Provider>
-  </HashRouter>
+  </BrowserRouter>
 }
 
 export default SamuraiJSApp;
