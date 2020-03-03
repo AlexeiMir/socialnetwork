@@ -1,4 +1,7 @@
+import {dialogsAPI} from '../api/api'
+
 const SEND_MESSAGE = 'SEND-MESSAGE';
+const SET_DIALOG_USER_SUCCESS = 'SET_DIALOG_USER_SUCCESS';    
 
 let initialState = {
     
@@ -31,6 +34,12 @@ const dialogsReducer =(state=initialState,action) => {
                 
             };
 
+        case SET_DIALOG_USER_SUCCESS:
+            return {
+                ...state
+
+            }
+
         default :
                 return state;
 
@@ -40,5 +49,15 @@ const dialogsReducer =(state=initialState,action) => {
 
 
 export const sendMessageCreator = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody });
+export const setDialogUserSuccess = (id,name) => ({type:SET_DIALOG_USER_SUCCESS, payload: {id,name}})
+
+export const startDialog = (userId) => async (dispatch) => {
+    const response = await dialogsAPI.startDialog(userId)
+    if (response.data.resultCode === 0) {
+        const {id,name} = response.data.data;
+        dispatch(setDialogUserSuccess(id,name))
+    }
+
+}
 
 export default dialogsReducer;

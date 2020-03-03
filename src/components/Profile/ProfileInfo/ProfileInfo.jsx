@@ -4,6 +4,9 @@ import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import userPhoto from '../../../assets/images/user.png'
 import ProfileDataForm from './ProfileDataForm'
+import { Button } from 'antd';
+import 'antd/dist/antd.css';
+
 
 
 const ProfileInfo = ({profile,status,updateStatus,isOwner,savePhoto,saveProfile}) => {
@@ -50,7 +53,7 @@ const Contact = ({contactTitle,contactValue}) => {
 
 const ProfileData = ({profile,isOwner,goToEditMode}) => {
   return <div>
-    {isOwner&&<div><button onClick={goToEditMode}>edit</button></div>}
+    {isOwner&&<div><Button type="primary" onClick={goToEditMode}>edit</Button></div>}
   <div>
     <b>Full name</b>:{profile.fullName}
   </div>

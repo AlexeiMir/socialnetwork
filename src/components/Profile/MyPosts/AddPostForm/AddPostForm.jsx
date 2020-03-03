@@ -6,6 +6,7 @@ import {Textarea} from '../../../../FormsControls/FormsControls'
 const maxLength10 = maxLengthCreator(10);
 
 const AddPostFormPage = (props) => {
+    debugger
     return (
         <form onSubmit={props.handleSubmit}>
         <div>

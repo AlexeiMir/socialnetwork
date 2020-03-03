@@ -6,6 +6,8 @@ import { connect } from "react-redux"
 import {login} from "../../redux/auth-reducer"
 import { Redirect } from "react-router-dom"
 import style from "../../FormsControls/FormsControls.module.css"
+import 'antd/dist/antd.css';
+
 
 
 const maxLenght20 = maxLengthCreator(20)
