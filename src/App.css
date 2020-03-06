@@ -4,13 +4,21 @@
   display: grid;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap:10px;
+  grid-gap:20px;
   grid-template-areas: 
   "h h"
   "n c";
+  background-color: #f4f2f2
 }
 
 .app-wrapper-content{
     grid-area: c;
-    background-color: green;
+    background: #fdfdfd none repeat scroll 0 0;
+    border: 1px solid #ede9e9;
+    border-radius: 5px;
+
+    width: 100%;
+    margin-bottom: 17px;
+    margin-right: 20px;
+    padding: 25px;
 }

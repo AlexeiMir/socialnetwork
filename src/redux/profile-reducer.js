@@ -10,10 +10,10 @@ const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 let initialState = {
     
         posts : [
-            {id: 1, name:'Hi, how are you?',   likesCounter: '325'},
-            {id: 2, name:"It's my first post", likesCounter: '47'},
-            {id: 3, name:"I work succsesfully", likesCounter: '27'},
-            {id: 4, name:"I'm here", likesCounter: '45'}
+            {id: 1, message:'Hi, how are you?',   likesCounter: '325'},
+            {id: 2, message:"It's my first post", likesCounter: '47'},
+            {id: 3, message:"I work succsesfully", likesCounter: '27'},
+            {id: 4, message:"I'm here", likesCounter: '45'}
           ],
           newPostText : 'it-kamasutra',
           profile: null,
@@ -26,7 +26,7 @@ const profileReducer =(state=initialState,action) => {
         case ADD_POST: {
                 let newPost = {
                     id: 2,
-                    name:action.newPostText,
+                    message:action.newPostText,
                     likesCounter: 2
                 }
                 return {

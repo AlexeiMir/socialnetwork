@@ -1,0 +1,12 @@
+.post {
+    background: #ecebeb none repeat scroll 0 0;
+    border-color: transparent;
+    border-radius: 3px;
+    color: #696969;
+    font-size: 13px;
+    font-weight: 400;
+    height: 40px;
+    line-height: 16px;
+    width: 65%;
+    margin-left: 40px;
+}

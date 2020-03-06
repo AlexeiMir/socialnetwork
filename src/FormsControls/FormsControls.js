@@ -2,6 +2,9 @@ import React from 'react'
 import styles from './FormsControls.module.css'
 import {Field} from "redux-form"
 import {required} from "../utils/validators/validators"
+import 'antd/dist/antd.css';
+import {  Input } from 'antd';
+
 
 
 
@@ -16,10 +19,12 @@ export const FormControl = ({input,meta:{touched,error},children}) => {
 
 }
 
-export const Input = (props) => {
+export const InputComponent = (props) => {
    const {input,meta,child, ...restProps} = props;
-   return <FormControl {...props}> <input {...input} {...restProps} /> </FormControl>
+   return <FormControl {...props}><input {...input} {...restProps}  />  </FormControl>
 }
+
+
 
 export const Textarea = (props) => {
     const {input,meta,child, ...restProps} = props;
@@ -33,3 +38,5 @@ export const Textarea = (props) => {
          /> {text}
          </div>
  )
+
+ 

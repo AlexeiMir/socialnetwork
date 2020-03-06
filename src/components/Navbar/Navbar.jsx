@@ -58,7 +58,7 @@ class Navbar extends React.Component {
     <Menu.Item key="1">
     <NavLink  to="/users" activeClassName={s.active}>
       <MailOutlined />
-      users
+      Users
       </NavLink>
       </Menu.Item>
     

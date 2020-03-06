@@ -1,11 +1,27 @@
 .descriptionBlock {
     padding:10px;
-    width: 100px;
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    grid-template-areas: 
+    "p d";
+
 }
  .mainPhoto {
      width: 200px;
+     grid-area: p;
+ }
+
+ .descriptionPerson{
+    grid-area: d;  
  }
 
  .contacts{
      padding-left:20px;
+ }
+
+ 
+ .row{
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    
  }

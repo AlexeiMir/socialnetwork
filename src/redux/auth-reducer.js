@@ -33,20 +33,23 @@ const authReducer =(state=initialState,action) => {
   export const setAuthUserData = (userId, login, email,isAuth) => ({type : SET_USER_DATA, payload : {userId, login, email,isAuth}});
   export const getCaptchaUrlSuccess = (captchaUrl) => ({type:GET_CAPTCHA_URL_SUCCESS, payload:{captchaUrl} })
 
-  export const getAuthUserData = () => async (dispatch) => {
-      let response = await authAPI.me()
+  export const getAuthUserData = () => (dispatch) => {
+      authAPI.me().then(response => {
         if ((response.data.resultCode) === 0) {
             let {id, login, email} = response.data.data;
             
         dispatch(setAuthUserData(id, login, email,true))
        
     }
+  }
+    )
     ; 
     
   }
 
   export const login = (email,password,rememberMe,captcha) => async(dispatch) => {
       let response = await authAPI.login(email,password,rememberMe,captcha)
+      
         if (response.data.resultCode === 0) {
           // success , get auth data
           dispatch(getAuthUserData());

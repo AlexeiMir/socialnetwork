@@ -1,6 +1,8 @@
 import React from 'react';
 import s from'./Header.module.css';
 import { NavLink } from 'react-router-dom';
+import 'antd/dist/antd.css';
+import { Button } from 'antd';
 
 const Header = (props) => {
     return <header className={s.header}>
@@ -8,7 +10,7 @@ const Header = (props) => {
         <div className={s.loginBlock}>
             {props.isAuth ?
             <div>{props.login} - <button onClick={props.logout}>Logout</button></div>
-            : <NavLink to='/login'>Login</NavLink>
+            : <Button type="link"><NavLink to='/login'>Login</NavLink></Button>
             }
         </div>
     </header>
