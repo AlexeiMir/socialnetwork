@@ -1,27 +1,87 @@
 .descriptionBlock {
     padding:10px;
     display: grid;
-    grid-template-columns: 6fr 6fr;
+    /*grid-template-columns: 3fr 3fr;*/
+    grid-template-rows: 300px 250px;
     grid-template-areas: 
-    "p d";
+    "p "
+    "d "
 
 }
  .mainPhoto {
-     width: 200px;
      grid-area: p;
+
+ }
+ .mainPhoto > img {
+     width: 100%;
+     max-height: 100%;
  }
 
  .descriptionPerson{
-    grid-area: d;  
+    grid-area: d;
  }
 
  .contacts{
      padding-left:20px;
+     display: grid;
+     grid-template-columns: 60% 40%;
+     padding-right:20px;
+
  }
 
- 
  .row{
     display: grid;
-    grid-template-columns: 3fr 3fr;
-    
+    grid-template-columns: 2fr 3fr;
  }
+
+.rowContacts{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+ .profileDescription{
+     display: grid;
+
+     grid-template-columns: 6fr 6fr;
+     grid-template-areas:
+             "f s";
+ }
+
+ .firstDescription{
+     grid-area: f;
+ }
+
+ .secondDescription{
+     grid-area: s;
+ }
+
+ .editPhoto{
+     background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+     bottom: 225px;
+     color: #fff;
+     left: 475px;
+     padding: 5px 20px;
+     position: absolute;
+     z-index: 9;
+     border-radius: 3px;
+     border: 1px solid transparent;
+ }
+
+
+.edit-phto .fileContainer [type="file"] {
+    height: 35px;
+    top: -11px;
+    width: 126px;
+}
+.fileContainer [type=file] {
+    cursor: pointer;
+    display: block;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    position: absolute;
+    right: 0px;
+    text-align: right;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+}

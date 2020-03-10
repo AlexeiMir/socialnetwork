@@ -33,11 +33,12 @@ const ProfileInfo = ({profile,status,updateStatus,isOwner,savePhoto,saveProfile}
     
       
       <img src={profile.photos.large || userPhoto} className ={s.mainPhoto}/>
-      {isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
+      <div className={s.editPhoto}>{isOwner && <input className={s.fileContainer} type={"file"} onChange={onMainPhotoSelected}/>}</div>
 
-      <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+      
 
       <div className={s.descriptionPerson}>
+          <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
       {editMode ?
       <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
       :<ProfileData profile={profile} isOwner={isOwner} goToEditMode={()=>{setEditMode(true)}} />}
@@ -55,7 +56,8 @@ const Contact = ({contactTitle,contactValue}) => {
 }
 
 const ProfileData = ({profile,isOwner,goToEditMode}) => {
-  return <div>
+  return <div className={s.profileDescription}>
+      <div className={s.firstDescription}>
     {isOwner&&<div><Button type="primary" onClick={goToEditMode}>edit</Button></div>}
     <div className={s.row}>
     <div><b>Full name</b></div>
@@ -73,13 +75,16 @@ const ProfileData = ({profile,isOwner,goToEditMode}) => {
     <div><b>About me</b></div>
     <div>{profile.aboutMe}</div>
   </div>
+      </div>
+      <div className={s.secondDescription}>
   <div className={s.row}>
     <div><b>Contacts</b>:</div>
   </div>
   <div className={s.row}>
-    <div className={s.contacts} >{Object.keys(profile.contacts).map(key => { return <Contact 
+    <div className={s.rowContacts} >{Object.keys(profile.contacts).map(key => { return <Contact
 key = {key} contactTitle ={key} contactValue = {profile.contacts[key]} />} )}</div>
   </div>
+      </div>
 </div>
 }
 

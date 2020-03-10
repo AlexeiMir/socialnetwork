@@ -8,10 +8,10 @@ import { Comment, Tooltip, Avatar } from 'antd';
 const Post = (props) => {
   return (
         <div className={s.item}>
-        <Comment content={props.message} author={<a>Alex</a>} avatar={
+        <Comment content={props.message} author={<a>{props.fullName}</a>} avatar={
           <Avatar
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            alt="Alex"
+            src={props.photos}
+            alt={props.fullName}
           />
         }
         

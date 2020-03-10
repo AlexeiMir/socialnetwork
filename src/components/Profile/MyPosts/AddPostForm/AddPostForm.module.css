@@ -1,12 +1,35 @@
 .post {
     background: #ecebeb none repeat scroll 0 0;
     border-color: transparent;
-    border-radius: 3px;
+    border-radius: 5px;
     color: #696969;
     font-size: 13px;
     font-weight: 400;
-    height: 40px;
     line-height: 16px;
-    width: 65%;
-    margin-left: 40px;
+    grid-area: p;
+    width:100%;
+
+
+}
+
+.buttonPost{
+    grid-area: b;
+
+}
+
+.postBlock{
+    display: grid;
+    margin-left:50px;
+
+    width: 75%;
+    grid-template-columns:10% 80% 20%;
+    grid-template-areas:
+            "h p p"
+            ". b .";
+
+}
+
+.imagePost{
+    grid-area: h;
+
 }
