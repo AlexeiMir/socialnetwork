@@ -6,6 +6,7 @@ import { connect } from "react-redux"
 import {login} from "../../redux/auth-reducer"
 import { Redirect } from "react-router-dom"
 import style from "../../FormsControls/FormsControls.module.css"
+
 import 'antd/dist/antd.css';
 import { Form, Button, Checkbox } from 'antd';
 
@@ -33,10 +34,13 @@ const LoginPage = ({handleSubmit,error,captchaUrl}) => {
     return (
     <form name="basic" {...layout} >
     <form onSubmit={handleSubmit}>
-     <div>
+     <div className={style.formGroup}>
      {createField("Email", "email",[required,maxLenght20], InputComponent )}
+     <i className={style.mtrlSelect}></i>
      {createField("Password", "password", [required], InputComponent, {type: "password"} )}
+     <i className={style.mtrlSelect}></i>
      {createField(null, "rememberMe",[], InputComponent, {type: "checkbox"}, "remember me" )}
+     
 
      {captchaUrl&&<img src={captchaUrl}/>}
         {captchaUrl&& createField("Symbols from image", "captcha", [required], InputComponent, {} )}
