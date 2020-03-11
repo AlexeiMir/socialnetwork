@@ -6,9 +6,9 @@ import { connect } from "react-redux"
 import {login} from "../../redux/auth-reducer"
 import { Redirect } from "react-router-dom"
 import style from "../../FormsControls/FormsControls.module.css"
-
+import { Row, Col,Button } from 'antd';
 import 'antd/dist/antd.css';
-import { Form, Button, Checkbox } from 'antd';
+
 
 
 
@@ -16,23 +16,11 @@ const maxLenght20 = maxLengthCreator(20)
 
 const LoginPage = ({handleSubmit,error,captchaUrl}) => {
 
-    const layout = {
-        labelCol: {
-          span: 8,
-        },
-        wrapperCol: {
-          span: 16,
-        },
-      };
-      const tailLayout = {
-        wrapperCol: {
-          offset: 8,
-          span: 16,
-        },
-      };
+    
     
     return (
-    <form name="basic" {...layout} >
+      <Row align="middle">
+        <Col span={8} offset={8}>
     <form onSubmit={handleSubmit}>
      <div className={style.formGroup}>
      {createField("Email", "email",[required,maxLenght20], InputComponent )}
@@ -53,7 +41,8 @@ const LoginPage = ({handleSubmit,error,captchaUrl}) => {
        
     </div>
     </form>
-    </form>
+    </Col>
+    </Row> 
 )
 }
 

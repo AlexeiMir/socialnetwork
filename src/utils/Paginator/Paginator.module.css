@@ -1,13 +1,29 @@
 .pageNumber.selectedPage{
-    font-weight: bold;
-    border-color:black
+    font-weight: 500;
+    background: #fff;
+    border-color: #1890ff;
 }
 
 .pageNumber{
-    padding: 2px;
-    border: 1px solid grey;
+    display: inline-block;
+    min-width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    font-family: Arial;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
 }
 
 .paginator {
-    margin:10px;
+    margin:30px;
 }
+
+
+

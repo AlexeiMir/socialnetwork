@@ -17,11 +17,11 @@ border: 2px red solid;
     margin-bottom: 15px;
     margin-top: 15px;
     display: inline-block;
-    width: 50%;
+    width: 100%;
   }
   
   .formGroup input, .formGroup textarea {
-    display: block;
+    
     background: 0 0;
     padding: .125rem .125rem .0625rem;
     font-size: 1rem;
@@ -46,18 +46,13 @@ border: 2px red solid;
     transition: all .28s ease;
   }
   
-  label {
-    display: inline-block;
-    margin-bottom: .5rem;
-  }
+
   
   *, ::after, ::before {
     box-sizing: border-box;
   }
   
-  label {
-    cursor: default;
-  }
+ 
   
   .formGroup .mtrlSelect {
     position: relative;
