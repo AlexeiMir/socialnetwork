@@ -1,8 +1,9 @@
 import React from 'react'
 import {reduxForm} from 'redux-form'
-import {InputComponent, Textarea, createField} from '../../../FormsControls/FormsControls'
+import {InputComponent, TextareaComponent, createField} from '../../../FormsControls/FormsControls'
 import s from '../ProfileInfo/ProfileInfo.module.css';
 import style from "../../../FormsControls/FormsControls.module.css"
+
 
 const ProfileDataForm = ({profile, handleSubmit, initialValues, error}) => {
 
@@ -16,7 +17,9 @@ const ProfileDataForm = ({profile, handleSubmit, initialValues, error}) => {
                 </div>}
                 <div className={s.row}>
                     <div><b>Full name:</b></div>
-                    <div>{createField("Full name", "fullName", [], InputComponent)}</div>
+                    <div>{createField("Full name", "fullName", [], InputComponent)}
+
+                    </div>
                 </div>
                 <div className={s.row}>
                     <div><b>Looking for a job:</b></div>
@@ -25,11 +28,11 @@ const ProfileDataForm = ({profile, handleSubmit, initialValues, error}) => {
                 <div className={s.row}>
                     <div><b><b>My professionals skills:</b></b></div>
                     <div>{createField("My professionals skills", "lookingForAJobDescription", [],
-                        Textarea)}</div>
+                        TextareaComponent)}</div>
                 </div>
                 <div className={s.row}>
                     <div><b>About me:</b></div>
-                    <div>{createField("About me", "aboutMe", [], Textarea)}</div>
+                    <div>{createField("About me", "aboutMe", [], TextareaComponent)}</div>
                 </div>
             </div>
             <div className={s.secondDescription}>

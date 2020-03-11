@@ -4,6 +4,7 @@ import {Field} from "redux-form"
 import {required} from "../utils/validators/validators"
 import 'antd/dist/antd.css';
 import {  Input } from 'antd';
+const { TextArea } = Input;
 
 
 
@@ -21,14 +22,14 @@ export const FormControl = ({input,meta:{touched,error},children}) => {
 
 export const InputComponent = (props) => {
    const {input,meta,child, ...restProps} = props;
-   return <FormControl {...props}><input {...input} {...restProps}  /> </FormControl>
+   return <FormControl {...props}><Input size="small" {...input} {...restProps}  /> </FormControl>
 }
 
 
 
-export const Textarea = (props) => {
+export const TextareaComponent = (props) => {
     const {input,meta,child, ...restProps} = props;
-    return <FormControl {...props}> <textarea {...input} {...restProps} /> </FormControl>
+    return <FormControl {...props}> <TextArea {...input} {...restProps} /> </FormControl>
  }
 
  export const createField = (placeholder,name,validators,component,props={}, text="") => (

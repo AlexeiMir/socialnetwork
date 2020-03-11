@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import styles from './Paginator.module.css'
 import cn from "classnames";
+import { Pagination } from 'antd';
+
 
 const Paginator = ({totalItemsCount,pageSize,currentPage,onPageChanged,portionSize=10}) => {
 
