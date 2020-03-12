@@ -6,6 +6,8 @@ import userPhoto from '../../../assets/images/user.png'
 import ProfileDataForm from './ProfileDataForm'
 import { Button,Descriptions } from 'antd';
 import 'antd/dist/antd.css';
+import { Row, Col } from 'antd';
+
 
 
 
@@ -30,18 +32,31 @@ const ProfileInfo = ({profile,status,updateStatus,isOwner,savePhoto,saveProfile}
 
   return (
   <div className={s.descriptionBlock}>    
-    
-      
+    <Row>
+    <Col span={24}>
       <img src={profile.photos.large || userPhoto} className ={s.mainPhoto}/>
-      <div className={s.editPhoto}>{isOwner && <input className={s.fileContainer} type={"file"} onChange={onMainPhotoSelected}/>}</div>
+      </Col>
+      </Row>
+      
 
       
 
       <div className={s.descriptionPerson}>
+      <Row>
+    <Col span={8}>
           <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+          </Col>
+          <Col span={8}>
+          {isOwner && <input className={s.fileContainer} type={"file"} onChange={onMainPhotoSelected}/>}
+          </Col>
+      </Row>
+      <Row>
+    <Col span={24}>
       {editMode ?
       <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>
       :<ProfileData profile={profile} isOwner={isOwner} goToEditMode={()=>{setEditMode(true)}} />}
+      </Col>
+      </Row>
       
       
      
@@ -58,7 +73,6 @@ const Contact = ({contactTitle,contactValue}) => {
 const ProfileData = ({profile,isOwner,goToEditMode}) => {
   return <div className={s.profileDescription}>
       <div className={s.firstDescription}>
-    {isOwner&&<div><Button type="primary" onClick={goToEditMode}>edit</Button></div>}
     <div className={s.row}>
     <div><b>Full name</b></div>
     <div>{profile.fullName}</div>
@@ -75,6 +89,7 @@ const ProfileData = ({profile,isOwner,goToEditMode}) => {
     <div><b>About me</b></div>
     <div>{profile.aboutMe}</div>
   </div>
+  {isOwner&&<div><Button type="primary" onClick={goToEditMode}>edit</Button></div>}
       </div>
       <div className={s.secondDescription}>
   <div className={s.row}>

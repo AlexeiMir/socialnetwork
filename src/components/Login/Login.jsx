@@ -20,20 +20,21 @@ const LoginPage = ({handleSubmit,error,captchaUrl}) => {
     
     return (
       <Row align="middle">
-        <Col span={8} offset={8}>
+        <Col span={8} offset={8} className={style.formGroup}>
+        <h1>Login</h1>
     <form onSubmit={handleSubmit}>
-     <div className={style.formGroup}>
+     <div >
      {createField("Email", "email",[required,maxLenght20], InputComponent )}
      <i className={style.mtrlSelect}></i>
      {createField("Password", "password", [required], InputComponent, {type: "password"} )}
      <i className={style.mtrlSelect}></i>
-     {createField(null, "rememberMe",[], InputComponent, {type: "checkbox"}, "remember me" )}
+     <Row><Col span={8} >{createField(null, "rememberMe",[], InputComponent, {type: "checkbox"}, "remember me" )}</Col></Row>
      
 
      {captchaUrl&&<img src={captchaUrl}/>}
         {captchaUrl&& createField("Symbols from image", "captcha", [required], InputComponent, {} )}
 
-         <button type="primary" htmlType="submit">Login</button> 
+        <Row><Col span={16} offset={8} ><Button type="primary" htmlType="submit">Login</Button></Col></Row> 
         {error&&<div className={style.formSummaryError}>
             {error}
         </div>
@@ -60,7 +61,7 @@ const Login = (props) => {
 
 
     return <div>
-        <h1>LOGIN</h1>
+        
         <LoginReduxForm  onSubmit={onSubmit} captchaUrl={props.captchaUrl}/></div>
 }
 

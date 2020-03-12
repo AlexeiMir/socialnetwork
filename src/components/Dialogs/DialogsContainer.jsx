@@ -4,12 +4,14 @@ import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 import { compose } from 'redux';
+import {getProfileSelector} from '../../redux/profile-selectors'
 
 
 
 const mapStateToProps = (state) =>{
     return {
     dialogsPage: state.dialogsPage,
+    profile: getProfileSelector(state)
     
 }
 }

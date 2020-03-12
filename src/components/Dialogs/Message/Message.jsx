@@ -7,8 +7,7 @@ import s from './../Dialogs.module.css';
 const Message = (props) => {
     return (
         <div className={s.message}>
-            {props.id}
-                   {props.message}
+                  <span className={s.messageBody}> {props.id} {props.message} </span>
                 </div>
     )
 }

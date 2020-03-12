@@ -3,6 +3,7 @@ import {reduxForm} from 'redux-form'
 import {InputComponent, TextareaComponent, createField} from '../../../FormsControls/FormsControls'
 import s from '../ProfileInfo/ProfileInfo.module.css';
 import style from "../../../FormsControls/FormsControls.module.css"
+import { Button } from 'antd';
 
 
 const ProfileDataForm = ({profile, handleSubmit, initialValues, error}) => {
