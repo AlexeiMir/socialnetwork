@@ -3,7 +3,7 @@ import styles from './FormsControls.module.css'
 import {Field} from "redux-form"
 import {required} from "../utils/validators/validators"
 import 'antd/dist/antd.css';
-import {  Input } from 'antd';
+import {Col, Input, Row} from 'antd';
 const { TextArea } = Input;
 
 
@@ -33,10 +33,8 @@ export const TextareaComponent = (props) => {
  }
 
  export const createField = (placeholder,name,validators,component,props={}, text="") => (
-     <div> 
-         <Field  placeholder={placeholder} name={name} validate={validators} component={component} 
-         {...props}
-         /> {text}
+     <div>
+         <Field  placeholder={placeholder} name={name} validate={validators} component={component} {...props}/><span> {text}</span>
          </div>
  )
 

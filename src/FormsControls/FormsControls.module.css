@@ -37,15 +37,15 @@ border: 2px red solid;
   }
   
   .formGroup [type="checkbox"] {
-   
+      z-index: 1;
+      color: #b7b7b7;
+      font-size: 1rem;
+      font-weight: 400;
+
+      transition: all .28s ease;
    
     
-    z-index: 1;
-    color: #b7b7b7;
-    font-size: 1rem;
-    font-weight: 400;
-   
-    transition: all .28s ease;
+
   }
   
 

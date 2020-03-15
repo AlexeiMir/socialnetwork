@@ -1,21 +1,42 @@
 .descriptionBlock {
-    padding:10px;
+   /* padding:10px;
     display: grid;
-    /*grid-template-columns: 3fr 3fr;*/
+    !*grid-template-columns: 3fr 3fr;*!
     grid-template-rows: 300px 250px;
-    grid-template-areas: 
+    grid-template-areas:
     "p"
-    "d "
+    "d "*/
 
 }
  .mainPhoto {
-     grid-area: p;
+     margin-top: -75px;
 
  }
- .mainPhoto  img {
-     width: 100%;
-     max-height: 100%;
+.mainPhoto > img {
+    border-radius: 100%;
+    border: 6px solid #fff;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 132px;
+    height: 132px;
+    background-color: #FDFBEE;
+    display: inline-block;
  }
+
+.coverPhoto img {
+    display: block;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    height: 400px;
+}
+
+.coverPhoto {
+    position: relative;
+
+
+}
+
 
  .descriptionPerson{
     grid-area: d;
@@ -75,22 +96,41 @@
      border: 1px solid transparent;
  }
 
-
-.edit-phto .fileContainer [type="file"] {
-    height: 35px;
-    top: -11px;
-    width: 126px;
+.fileContainer {
+    margin-top: -50px;
 }
-.fileContainer [type=file] {
-    cursor: pointer;
-    display: block;
-    filter: alpha(opacity=0);
+
+.fileBtn {
+    width: 0.1px;
+    height: 0.1px;
     opacity: 0;
-    position: absolute;
-    right: 0px;
-    text-align: right;
-    top: 0;
-    width: 100%;
     overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.fileBtn + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: #1890ff;
+    display: inline-block;
+    border-radius: 100%;
+
+}
+.fileBtn:focus + label,
+.fileBtn + label:hover {
+    background-color: #1890ff;
 }
 
+.fileBtn + label {
+    cursor: pointer; /* "hand" cursor */
+}
+
+.fileBtn:focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.UploadOutlined{
+    width: 50px;
+    height: 50px;
+}
