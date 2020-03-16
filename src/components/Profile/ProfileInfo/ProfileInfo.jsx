@@ -7,7 +7,7 @@ import ProfileDataForm from './ProfileDataForm'
 import {Button, Descriptions} from 'antd';
 import 'antd/dist/antd.css';
 import {Row, Col} from 'antd';
-import {UploadOutlined,ProfileTwoTone} from '@ant-design/icons';
+import {UploadOutlined,UserOutlined} from '@ant-design/icons';
 
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
@@ -44,26 +44,31 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 
             <div className={s.descriptionPerson}>
                 <Row justify="center">
-                    <Col span={8}>
-                        <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
-                    </Col>
-                    <Col span={8} className={s.mainPhoto}>
+                    
+                    <Col span={8}  offset={4}>
+                        <Row className={s.mainPhoto}>
                         <img src={profile.photos.large || userPhoto}/>
+                        </Row>
+                        <Row>
+                        <Col span={12} offset={6}>
+                        <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                        </Col>
+                        </Row>
                     </Col>
-                    <Col span={8}>
+                    <Col span={8} offset={4}>
                         <Row className={s.fileContainer}>
                         <Col span={6} >
                             {isOwner &&
                             <input id="file" type={"file"} className={s.fileBtn} onChange={onMainPhotoSelected}/>}
-                            <label for="file"> <UploadOutlined style={{ fontSize: '30px', color: 'white' }}  className={s.UploadOutlined}/></label>
-                        </Col>whit
+                            <label for="file"> <UploadOutlined  className={s.uploadOutlined}/></label>
+                        </Col>
                         <Col span={6}>
-                            {isOwner && <div><ProfileTwoTone  style={{fontSize:'50px'}} onClick={goToEditMode}/></div>}
+                            {isOwner && <UserOutlined  className={s.uploadOutlined} onClick={goToEditMode}/>}
                         </Col>
                         </Row>
                     </Col>
                 </Row>
-                <Row>
+                <Row className={s.profileData}>
                     <Col span={24}>
                         {editMode ?
                             <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/>

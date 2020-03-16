@@ -50,7 +50,7 @@ class Navbar extends React.Component {
      
     <Menu.Item key="2">
     <NavLink  to="/dialogs" activeClassName={s.active}>
-            <CalendarOutlined />
+            <MailOutlined />
       Messages
       </NavLink>
       </Menu.Item>

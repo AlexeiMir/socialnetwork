@@ -9,13 +9,13 @@ const Header = (props) => {
     return <header className={s.header}>
         <Row>
             <Col span={6}><img src='http://dietkremlin.ru/img/logo0601.png'></img></Col>
-        <Col span={6} className={s.loginBlock}>
+        <Col span={3} offset={15} className={s.loginBlock}>
             {props.isAuth ?
-                <Col span={12} offset={6}>
+               <Row >
                 <Col span={12}>{props.login}</Col>
-                <Col span={12}><LogoutOutlined style={{ fontSize: '30px', color: '#08c' }} onClick={props.logout} /></Col>
-                </Col>
-            : <Col span={6}><Button type="link"><NavLink to='/login'>Login</NavLink></Button></Col>
+                <Col span={12}><LogoutOutlined style={{ fontSize: '30px', color: 'white' }} onClick={props.logout} /></Col>
+                </Row>
+            : <Col span={4}><Button type="link"><NavLink to='/login'>Login</NavLink></Button></Col>
             }
         </Col>
         </Row>

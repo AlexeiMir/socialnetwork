@@ -8,6 +8,8 @@ import {Avatar, Button} from 'antd';
 
 const maxLength10 = maxLengthCreator(10);
 
+
+
 const AddPostFormPage = (props) => {
 
     return (

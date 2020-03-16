@@ -11,7 +11,7 @@ const ProfileDataForm = ({profile, handleSubmit, initialValues, error}) => {
     return <form onSubmit={handleSubmit} className={s.profileDescription}>
             <div className={s.firstDescription}>
                 <div>
-                    <button>save</button>
+                    <button className={s.btnSave}>Save</button>
                 </div>
                 {error && <div className={style.formSummaryError}>
                     {error}

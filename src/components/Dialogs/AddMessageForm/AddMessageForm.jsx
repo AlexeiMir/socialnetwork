@@ -3,6 +3,8 @@ import { reduxForm, Field } from 'redux-form'
 import {TextareaComponent} from '../../../FormsControls/FormsControls'
 import {required,maxLengthCreator} from '../../../utils/validators/validators'
 import 'antd/dist/antd.css';
+import s from '../Dialogs.module.css'
+
 
 
 
@@ -20,7 +22,7 @@ const AddMessageForm = (props) => {
     
     </div>
     <div>
-        <button>Send message</button>
+        <button className={s.sendMessage}>Send message</button>
     </div> 
     </form>
     )
