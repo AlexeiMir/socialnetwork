@@ -14,6 +14,7 @@ import Preloader from './components/common/Preloader/Preloader';
 import {Provider} from 'react-redux';
 import store from './redux/redux-store'
 import {withSuspense} from './hoc/withSuspense'
+import Todolist from './components/Todolist/Todolist'
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
@@ -41,6 +42,7 @@ class App extends Component {
       <Route path='/news'component={News} />
       <Route path='/music'component={Music} />
       <Route path='/login' render ={()=><Login/>} />
+      <Route path='/todolist' render={()=><Todolist/>} />
       <Route exact path='/' render={()=><Redirect to='/profile/'/>}/>
       <Route path='*' render ={()=><div>404 page not found</div>} />
       </Switch>
