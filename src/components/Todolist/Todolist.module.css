@@ -1,9 +1,21 @@
-.toDoList .delete {
+.delete {
 color: red;
     display: none;
     cursor:pointer;
+    float:right;
 }
 
-.toDoList .task:hover .delete{
+.toDoList{
+    max-width: 500px;
+    margin-top: 50px;
+    margin: 0 auto;
+
+}
+
+.toDoList .tasks:hover .delete{
     display: inline-block;
+}
+
+.tasks .done {
+    text-decoration: line-through;
 }

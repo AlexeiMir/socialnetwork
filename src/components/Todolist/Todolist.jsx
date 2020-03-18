@@ -22,7 +22,7 @@ class Todolist extends React.Component {
     }
 
 
-    createNewTask = (e) => {
+    createNewTask(e) {
         if (e.key === 'Enter') {
             this.setState({tasks: [...this.state.tasks, {title:e.currentTarget.value,isDone: false}]})
             e.currentTarget.value = ''
@@ -31,39 +31,46 @@ class Todolist extends React.Component {
 
     }
 
-    toggleTaskStatus() {
+    toggleTaskStatus (task,e)  {
+        task.isDone = !task.isDone;
+        this.forceUpdate();
+
 
     }
 
-    deleteTask(task, e) {
+    deleteTask (task, e) {
+
         this.setState({tasks: this.state.tasks.filter((t) => {
-            return t!== task
+            return t !== task
         })})
     }
 
     render() {
 
-        return <Row className={s.toDoList}>
-            <Row>
-                <Col span={8}>
+        return <div className={s.toDoList}>
+            <div className={s.header}>
+
                     <input onKeyPress={this.createNewTask.bind(this)}/>
-                </Col>
-            </Row>
-            <Row>
-                <Col span={8} className={s.task}>
+
+            </div>
+            <div>
+                <div  className={s.tasks}>
+
                     {this.state.tasks.map((task) => {
-                        return <Row>
-                            <Col span={6}><input type="checkbox" onChange={this.toggleTaskStatus.bind(this)}/></Col>
-                            <Col span={12}>{task.title}
-                            </Col>
-                            <Col span={6} className={s.delete} onChange={this.deleteTask.bind(this, task)}>X</Col>
-                        </Row>
+
+                        return <div className={this.state.isDone?s.done:''}>
+                            <input type="checkbox"
+                                   onClick={this.toggleTaskStatus.bind(this,task)}/>
+                            {task.title}
+
+                            <span className={s.delete} onClick={this.deleteTask.bind(this, task)}>X</span>
+                        </div>
                     })
 
                     }
-                </Col>
-            </Row>
-        </Row>
+                </div>
+            </div>
+        </div>
     }
 }
 
