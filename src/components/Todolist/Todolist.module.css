@@ -1,0 +1,9 @@
+.toDoList .delete {
+color: red;
+    display: none;
+    cursor:pointer;
+}
+
+.toDoList .task:hover .delete{
+    display: inline-block;
+}
