@@ -2,18 +2,22 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import s from './Todolist.module.css';
 import {Row, Col} from 'antd';
+import Task from './Task'
 
 
 class Todolist extends React.Component {
     constructor(props) {
         super();
         this.state = {
+            taskIndex:2,
             tasks: [
                 {
+                    id:0,
                     isDone: false,
                     title: 'learn js'
                 },
                 {
+                    id:1,
                     isDone: false,
                     title: 'learn react'
                 }
@@ -23,27 +27,26 @@ class Todolist extends React.Component {
 
 
     createNewTask(e) {
+        
         if (e.key === 'Enter') {
-            this.setState({tasks: [...this.state.tasks, {title:e.currentTarget.value,isDone: false}]})
-            e.currentTarget.value = ''
+           
+            this.setState({tasks: [...this.state.tasks, {title:e.currentTarget.value,isDone: false,id:this.state.taskIndex}]})
+            e.currentTarget.value = '';
+            this.taskIndex++
         }
 
 
     }
 
-    toggleTaskStatus (task,e)  {
-        task.isDone = !task.isDone;
-        this.forceUpdate();
 
+    deleteTask (taskId) {
 
+       const newTaskList= this.state.tasks.filter((t) => {
+            return t.id !== taskId
+       })
+       this.setState({tasks:newTaskList})
     }
-
-    deleteTask (task, e) {
-
-        this.setState({tasks: this.state.tasks.filter((t) => {
-            return t !== task
-        })})
-    }
+    
 
     render() {
 
@@ -58,13 +61,8 @@ class Todolist extends React.Component {
 
                     {this.state.tasks.map((task) => {
 
-                        return <div className={this.state.isDone?s.done:''}>
-                            <input type="checkbox"
-                                   onClick={this.toggleTaskStatus.bind(this,task)}/>
-                            {task.title}
-
-                            <span className={s.delete} onClick={this.deleteTask.bind(this, task)}>X</span>
-                        </div>
+                        return <Task task={task}  deleteCallback={this.deleteTask} 
+                         key={task.id} />
                     })
 
                     }
