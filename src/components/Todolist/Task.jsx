@@ -11,14 +11,14 @@ class Task extends React.Component {
          task: props.task
         }
 
-        this.parentDeleteCallback = props.deleteCallback;
+        
     }
 
    
 
 
     deleteTask(e) {
-        this.parentDeleteCallback(this.state.task.id)
+        this.props.deleteCallback(this.state.task.id)
 
     }
     toggleTaskStatus(e) {

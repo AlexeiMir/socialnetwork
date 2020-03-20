@@ -19,3 +19,16 @@ color: red;
 .tasks .done {
     text-decoration: line-through;
 }
+
+.footer{
+    display: flex;
+}
+
+.footer div {
+    padding: 10px;
+    margin-top:10px;
+}
+
+.footer .buttons button.active {
+    border: 1px solid grey;
+}

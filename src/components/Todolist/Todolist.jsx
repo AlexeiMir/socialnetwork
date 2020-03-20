@@ -3,13 +3,15 @@ import 'antd/dist/antd.css';
 import s from './Todolist.module.css';
 import {Row, Col} from 'antd';
 import Task from './Task'
+import TodolistTaskCreator from './TodolistTaskCreator'
+import TodolistFooter from './TodolistFooter'
 
 
 class Todolist extends React.Component {
     constructor(props) {
         super();
+        this.taskIndex = 2;
         this.state = {
-            taskIndex:2,
             tasks: [
                 {
                     id:0,
@@ -26,15 +28,13 @@ class Todolist extends React.Component {
     }
 
 
-    createNewTask(e) {
+    createNewTask(newTask) {
         
-        if (e.key === 'Enter') {
+            this.setState({tasks: [...this.state.tasks,newTask]})
+            
            
-            this.setState({tasks: [...this.state.tasks, {title:e.currentTarget.value,isDone: false,id:this.state.taskIndex}]})
-            e.currentTarget.value = '';
-            this.taskIndex++
-        }
-
+        
+       
 
     }
 
@@ -51,23 +51,20 @@ class Todolist extends React.Component {
     render() {
 
         return <div className={s.toDoList}>
-            <div className={s.header}>
-
-                    <input onKeyPress={this.createNewTask.bind(this)}/>
-
-            </div>
+            <TodolistTaskCreator onCreatTask={this.createNewTask.bind(this)} />
             <div>
                 <div  className={s.tasks}>
 
                     {this.state.tasks.map((task) => {
 
-                        return <Task task={task}  deleteCallback={this.deleteTask} 
+                        return <Task task={task}  deleteCallback={this.deleteTask.bind(this)} 
                          key={task.id} />
                     })
 
                     }
                 </div>
             </div>
+            <TodolistFooter />
         </div>
     }
 }
