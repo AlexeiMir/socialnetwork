@@ -7,34 +7,29 @@ import {Row, Col} from 'antd';
 class Task extends React.Component {
     constructor(props) {
         super();
-        this.state = {
-         task: props.task
-        }
 
-        
     }
-
-   
 
 
     deleteTask(e) {
-        this.props.deleteCallback(this.state.task.id)
+        this.props.deleteCallback(this.props.task.id)
 
     }
     toggleTaskStatus(e) {
-        const newTask = {...this.state.task,
-        isDone: !this.state.task.isDone
+        const task = {...this.props.task}
+        task.isDone = !task.isDone
+        this.props.onUpdate(task)
         }
-        this.setState({task: newTask})
-    }
+
+
 
 
 
     render() {
-    return <div className={this.state.task.isDone?s.done:''}>
-                            <input type="checkbox" checked={this.state.task.isDone}
+    return <div className={this.props.task.isDone?s.done:''}>
+                            <input type="checkbox" checked={this.props.task.isDone}
                             onClick={this.toggleTaskStatus.bind(this)} />
-                            {this.state.task.title}
+                            {this.props.task.title}
 
                             <span className={s.delete} 
                             onClick={this.deleteTask.bind(this)}>X</span>

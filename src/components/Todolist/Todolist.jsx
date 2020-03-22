@@ -5,12 +5,12 @@ import {Row, Col} from 'antd';
 import Task from './Task'
 import TodolistTaskCreator from './TodolistTaskCreator'
 import TodolistFooter from './TodolistFooter'
+import TasksList from "./TasksList";
 
 
 class Todolist extends React.Component {
     constructor(props) {
         super();
-        this.taskIndex = 2;
         this.state = {
             tasks: [
                 {
@@ -23,18 +23,28 @@ class Todolist extends React.Component {
                     isDone: false,
                     title: 'learn react'
                 }
-            ]
+            ],
+            filter:'all'
         }
     }
 
+    onFilterChange(dataFilter){
+        this.setState({filter:dataFilter})
+    }
 
-    createNewTask(newTask) {
+
+
+    updateTask(task) {
         
-            this.setState({tasks: [...this.state.tasks,newTask]})
-            
-           
-        
-       
+            const newTasksList = [...this.state.tasks]
+        newTasksList.forEach((t) => {
+            if (t.id === task.id) {
+                t.isDone = task.isDone
+                return
+
+            }
+        })
+        this.setState({tasks:newTasksList})
 
     }
 
@@ -46,25 +56,36 @@ class Todolist extends React.Component {
        })
        this.setState({tasks:newTaskList})
     }
+
+    createNewTask (task) {
+        this.setState({tasks:[...this.state.tasks,task]})
+
+    }
+
+    clearCompleted(){
+        this.setState({tasks:this.state.tasks.filter((t)=> !t.isDone)})
+    }
     
 
     render() {
+        let {tasks,filter} = this.state
+
+        let filteredTasks = []
+        if (this.state.filter === "all") {filteredTasks = this.state.tasks }
+        if (this.state.filter === "active") {filteredTasks = this.state.tasks.filter((t) => !t.isDone)}
+        if (this.state.filter === "completed") {filteredTasks = this.state.tasks.filter((t) => t.isDone) }
 
         return <div className={s.toDoList}>
             <TodolistTaskCreator onCreatTask={this.createNewTask.bind(this)} />
-            <div>
-                <div  className={s.tasks}>
 
-                    {this.state.tasks.map((task) => {
+            <TasksList onDelete = {this.deleteTask.bind(this)}
+                                    onUpdate = {this.updateTask.bind(this)}
+                                    tasks={filteredTasks}
+            />
 
-                        return <Task task={task}  deleteCallback={this.deleteTask.bind(this)} 
-                         key={task.id} />
-                    })
-
-                    }
-                </div>
-            </div>
-            <TodolistFooter />
+            <TodolistFooter onFilterChange={this.onFilterChange.bind(this)} filter={filter}
+            tasks={tasks} clearCompleted = {this.clearCompleted.bind(this)}
+            />
         </div>
     }
 }

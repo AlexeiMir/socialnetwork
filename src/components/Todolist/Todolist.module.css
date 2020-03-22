@@ -29,6 +29,6 @@ color: red;
     margin-top:10px;
 }
 
-.footer .buttons button.active {
+.footer .buttons button.selected {
     border: 1px solid grey;
 }
