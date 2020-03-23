@@ -88,3 +88,9 @@ export const dialogsAPI = {
     }
 
 }
+
+export const todoAPI = {
+    getTodoList(){
+        return instance.get('todo-lists')
+    }
+}
