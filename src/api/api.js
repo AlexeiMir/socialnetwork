@@ -90,7 +90,10 @@ export const dialogsAPI = {
 }
 
 export const todoAPI = {
-    getTodoList(){
-        return instance.get('todo-lists')
+    getTasks(){
+        return instance.get(`todo-lists/{todolistId}/tasks?page=1&count=5`)
+    },
+    postTask(){
+        return instance.post('todo-lists/')
     }
 }

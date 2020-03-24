@@ -1,4 +1,4 @@
-import {authAPI} from '../api/api'
+import {todoAPI} from '../api/api'
 import { stopSubmit } from 'redux-form';
 import {getAuthUserData} from './auth-reducer';
 
@@ -9,7 +9,7 @@ let initialState = {
     initialized:false
 }
 
-const appReducer =(state=initialState,action) => {
+const todoReducer =(state=initialState,action) => {
     
     switch (action.type) {
         
@@ -24,10 +24,15 @@ const appReducer =(state=initialState,action) => {
     }
 }
   
-  
+export const postTask = () => async(dispatch) =>{
+const response = await todoAPI.postTask()
+if (response.data.resultCode === 0) {
+  dispatch(addTask)
+}
+}
 
 
  
 
 
-export default appReducer;
+export default todoReducer;
