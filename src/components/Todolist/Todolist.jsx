@@ -76,7 +76,7 @@ class Todolist extends React.Component {
         if (this.state.filter === "completed") {filteredTasks = this.state.tasks.filter((t) => t.isDone) }
 
         return <div className={s.toDoList}>
-            <TodolistTaskCreator onCreatTask={this.createNewTask.bind(this)} />
+            <TodolistTaskCreator postTask={this.props.postTask} />
 
             <TasksList onDelete = {this.deleteTask.bind(this)}
                                     onUpdate = {this.updateTask.bind(this)}

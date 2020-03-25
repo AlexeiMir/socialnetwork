@@ -15,14 +15,15 @@ class TodolistTaskCreator extends React.Component {
     createNewTask(e) {
         
         if (e.key === 'Enter') {
-            const newTask = {
+           /* const newTask = {
                 id:this.taskIndex,
                 isDone:false,
                 title: e.currentTarget.value
             }
             this.props.onCreatTask(newTask);
             this.taskIndex++
-            e.currentTarget.value = '';
+            e.currentTarget.value = '';*/
+            this.props.postTask(e.currentTarget.value)
         }
        
 

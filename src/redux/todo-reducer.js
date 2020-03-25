@@ -24,8 +24,8 @@ const todoReducer =(state=initialState,action) => {
     }
 }
   
-export const postTask = () => async(dispatch) =>{
-const response = await todoAPI.postTask()
+export const postTask = (title) => async(dispatch) =>{
+const response = await todoAPI.postTask(title)
 if (response.data.resultCode === 0) {
   dispatch(addTask)
 }
